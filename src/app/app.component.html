@@ -2,6 +2,24 @@
   <h1 class="navbar-brand mb-0">{{ title }}</h1>
 </nav>
 <div class="container-fluid">
-  <app-heroes></app-heroes>
+  <ul class="nav nav-pills nav-fill mb-4">
+    <li class="nav-item px-lg-5" (click)="onSelected('dashboard')">
+      <a
+        class="nav-link"
+        routerLink="/dashboard"
+        [class.active]="tabSelected === 'dashboard'"
+        >Dashboard</a
+      >
+    </li>
+    <li class="nav-item px-lg-5" (click)="onSelected('heroes')">
+      <a
+        class="nav-link"
+        routerLink="/heroes"
+        [class.active]="tabSelected === 'heroes'"
+        >Heroes</a
+      >
+    </li>
+  </ul>
+  <router-outlet class="tab-content" id="pills-tabContent"></router-outlet>
   <app-messages></app-messages>
 </div>

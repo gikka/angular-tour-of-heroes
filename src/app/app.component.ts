@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+  tabSelected: string;
+  onSelected(selected): void {
+    this.tabSelected = selected;
+  }
 }
