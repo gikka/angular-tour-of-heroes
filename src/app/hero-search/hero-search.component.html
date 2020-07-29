@@ -1,0 +1,17 @@
+<h4 class="border-bottom mb-4"><label for="search-box">Hero Search</label></h4>
+<input
+  class="form-control"
+  #searchBox
+  id="search-box"
+  (input)="search(searchBox.value)"
+  placeholder="Search hero..."
+/>
+<div class="list-group">
+  <a
+    class="list-group-item list-group-item-action"
+    *ngFor="let hero of heroes$ | async"
+    routerLink="/detail/{{ hero.id }}"
+  >
+    {{ hero.name }}
+  </a>
+</div>

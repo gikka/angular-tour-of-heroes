@@ -1,10 +1,37 @@
 <h4 class="border-bottom mb-4">My Heroes</h4>
-<div class="list-group mb-4">
-  <a
-    class="list-group-item list-group-item-action"
-    *ngFor="let hero of heroes"
-    routerLink="/detail/{{ hero.id }}"
+
+<div class="form-inline mb-3 ml-1">
+  <div class="form-group">
+    <label class="col-form-label mr-1" for="heroName">Hero name: </label>
+  </div>
+  <div class="form-group mx-sm-3">
+    <input class="form-control" #heroName id="heroName" />
+  </div>
+  <button
+    class="btn btn-primary"
+    (click)="add(heroName.value); heroName.value = ''"
   >
-    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-  </a>
+    Add
+  </button>
 </div>
+
+<ul class="list-group mb-4">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let hero of heroes"
+  >
+    <a class="list-group-item-action" routerLink="/detail/{{ hero.id }}">
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+    </a>
+    <button
+      type="button"
+      class="close"
+      data-dismiss="alert"
+      aria-label="delete hero"
+      title="delete hero"
+      (click)="delete(hero)"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+</ul>

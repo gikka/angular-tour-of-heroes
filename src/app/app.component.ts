@@ -11,4 +11,8 @@ export class AppComponent {
   onSelected(selected): void {
     this.tabSelected = selected;
   }
+
+  ngOnInit(): void {
+    this.tabSelected = 'dashboard';
+  }
 }
